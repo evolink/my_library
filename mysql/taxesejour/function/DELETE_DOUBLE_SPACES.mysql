@@ -1,0 +1,27 @@
+
+
+# =====
+# DELIMITER //
+
+DROP FUNCTION IF EXISTS DELETE_DOUBLE_SPACES//
+CREATE FUNCTION DELETE_DOUBLE_SPACES ( title VARCHAR(250) )
+RETURNS VARCHAR(250) DETERMINISTIC
+BEGIN
+    DECLARE result VARCHAR(250);
+    SET result = REPLACE( title, '  ', ' ' );
+    WHILE (result <> title) DO 
+        SET title = result;
+        SET result = REPLACE( title, '  ', ' ' );
+    END WHILE;
+    RETURN result;
+END//
+DELIMITER ;
+
+SELECT DELETE_DOUBLE_SPACES('a    b');
+
+
+
+
+
+# ===
+

@@ -1,0 +1,23 @@
+UPDATE taxe_sejour_courriers SET titre = REPLACE(titre, "à&nbsp;", "à") WHERE `id_courrier` = 1
+
+UPDATE taxe_sejour_courriers SET titre = REPLACE(titre, "  ", " ") WHERE `id_courrier` = 1
+ 
+UPDATE taxe_sejour_courriers SET titre = REPLACE(titre, CHAR(10), "") WHERE `id_courrier` = 1
+
+UPDATE taxe_sejour_courriers SET titre = REPLACE(titre, SPACE(2), SPACE(1)) WHERE `id_courrier` = 1
+
+
+# !!!
+UPDATE taxe_sejour_courriers SET test = titre WHERE `id_courrier` = 1
+UPDATE taxe_sejour_courriers SET test = REPLACE(test, 'à ', 'à') WHERE `id_courrier` = 1
+
+
+UPDATE taxe_sejour_courriers SET titre = REPLACE(titre, ' ', '') WHERE `id_courrier` = 1
+UPDATE taxe_sejour_courriers SET titre = REPLACE(titre, ' ', '') WHERE `id_courrier` = 1
+
+UPDATE taxe_sejour_courriers SET titre = DELETE_DOUBLE_SPACES(titre) WHERE id_courrier = 1
+
+
+# ===
+# Mise à  disposition de votre état récapitulatif pour la période du @periode_debut@ au @periode_fin@
+
